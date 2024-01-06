@@ -1,0 +1,26 @@
+{{ define "title" }}{{ .Site.Title }}{{ end }}
+{{ define "main" }}
+<main>
+  <section class="hero is-halfheight has-background-white">
+  {{- partial "contents/biograpy.html" . -}}
+  </section>
+  <section class="hero has-background-light">
+  {{- partial "contents/skills.html" . -}}
+  </section>
+  <section class="hero has-background-white">
+  {{- partial "contents/experience.html" . -}}
+  </section>
+  <section class="hero has-background-light">
+  {{- partial "contents/events.html" . -}}
+  </section>
+  <section class="hero has-background-white">
+  {{- partial "contents/accomplishments.html" . -}}
+  </section>
+  <section class="hero has-background-light">
+  {{- partial "contents/projects.html" . -}}
+  </section>
+  <section class="hero has-background-white">
+  {{- partial "contents/contact.html" . -}}
+  </section>
+</main>
+{{ end }}

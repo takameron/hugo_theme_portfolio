@@ -1,0 +1,18 @@
+<div id="contact" class="hero-body">
+  <div class="container">
+    <p class="title">Contact</p>
+
+    <div class="columns is-multiline ml-4">
+      <ul>
+      {{ range $.Site.Data.contact }}
+      {{ range . }}
+      <li class="is-size-4">
+        <i class="{{ .icon_pack }} {{ .icon }}" aria-hidden="true"></i>
+        <a href="{{ .link }}" target="_blank" rel="noopener noreferrer">{{ .name }}</a>
+      </li>
+      {{ end }}
+      {{ end }}
+      </ul>
+    </div>
+  </div>
+</div>

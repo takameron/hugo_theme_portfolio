@@ -1,0 +1,30 @@
+<div class="column is-3">
+  <div class="box">
+  {{ if isset .Params "external_link" }}
+  <a href="{{ .Params.external_link | absURL }}" target="_blank" rel="noopener">
+{{ else }}
+  <a href="{{ .Permalink }}">
+{{ end }}
+    {{ if isset .Params "thumbnail" }}
+    {{ $image := .Resources.GetMatch .Params.thumbnail }}
+    <div class="card-image">
+      <figure class="image">
+        <img
+          src="{{ $image.Permalink }}"
+          alt="thumbnail">
+      </figure>
+    </div>
+    {{ end }}
+
+    <div class="card-content">
+      <div class="content">
+        <p class="title is-4">{{ .Title }}</p>
+        <p class="subtitle">{{ partial "parts/time.html" . }}</p>
+        <div class="content">
+          {{ .Params.summary }}
+        </div>
+      </div>
+    </div>
+  </a>
+</div>
+</div>

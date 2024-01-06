@@ -1,0 +1,46 @@
+<div id="biograpy" class="hero-body">
+  <div class="container">
+
+    <div class="columns is-multiline">
+      <div class="column is-4 has-text-centered">
+        {{ with .Site.Data.biograpy }}
+        {{ if isset . "avatar" }}
+        <figure class="image is-128x128 m-auto">
+          <img src="{{ .avatar | absURL }}">
+        </figure>
+        {{ end }}
+
+        <p class="title">{{ .name }}</p>
+        {{ if isset . "role" }}
+        <p class="subtitle">{{ .role }}</p>
+        {{ end }}
+        {{ end }}
+
+        {{ range .Site.Data.biograpy.social }}
+        <span class="icon-text">
+          <span class="icon p-5">
+            <a href="{{ .link }}" class="{{ .icon_pack }} {{ .icon }} is-size-2" aria-hidden="true" target="_blank" rel="noopener noreferrer"></a>
+          </span>
+        </span>
+        {{ end }}
+      </div>
+
+      <div class="column is-8 content">
+        {{ with .Site.Data.biograpy }}
+        <section class="block">
+          {{ .bio | safeHTML }}
+        </section>
+        <section class="block">
+          <span class="title is-4">interest</span>
+          <ul>
+          {{ range .interest }}
+          <li>{{ . }}</li>
+          {{ end }}
+          </ul>
+        </div>
+        {{ end }}
+      </section>
+
+    </div>
+  </div>
+</div>

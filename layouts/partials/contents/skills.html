@@ -1,0 +1,21 @@
+<div id="skills" class="hero-body">
+  <div class="container">
+    <p class="title">Skills</p>
+
+    <div class="columns is-multiline">
+      {{ range $.Site.Data.skills }}
+      {{ range . }}
+      <div class="column is-4 p-5 has-text-centered">
+        <span class="icon">
+          <i class="{{ .icon_pack }} {{ .icon }} fa-4x"></i>
+        </span>
+        <p>
+          <strong>{{ .name }}</strong><br>
+          {{ .description }}
+        </p>
+      </div>
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,64 @@
+{{ define "title" }}{{ .Title }} - {{ .Site.Title }}{{ end }}
+{{ define "main" }}
+
+<nav class="navbar is-light mb-6" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a class="navbar-item" href="/">
+      <p class="title">Home</p>
+    </a>
+  </div>
+</nav>
+
+<main class="container is-max-desktop">
+  <article>
+    <header>
+      <h1 class="title">{{ .Title }}</h1>
+      <aside>
+        {{ partial "parts/time.html" . }}
+      </aside>
+      <aside>
+        <div class="tags">
+          {{- range .Params.links }}
+          <span class="tag">
+            <span class="icon-text">
+              <span class="icon">
+                <i class="{{ .icon_pack }} {{ .icon }}"></i>
+              </span>
+              <span>
+                <a href="{{ .url | absURL }}" target="_blank" rel="noopener">{{ .name }}</a>
+              </span>
+            </span>
+          </span>
+          {{- end }}
+        </div>
+      </aside>
+      {{ if isset .Params "thumbnail" }}
+      {{ $image := .Resources.GetMatch .Params.thumbnail }}
+      <aside>
+        <figure class="image py-4">
+          <img
+            src="{{ $image.Permalink }}"
+            alt="thumbnail">
+        </figure>
+      </aside>
+      {{ end }}
+    </header>
+    <div class="content py-4">
+    {{ .Content }}
+    </div>
+  </article>
+  <div>
+    {{- $related := .Site.RegularPages.Related . | first 6 -}}
+    {{- if ne (len $related) 0 -}}
+    <aside class="py-4">
+      <header class="title is-4">See Also</header>
+      <ul>
+        {{- range $related -}}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a> - {{ .Params.summary }}</li>
+        {{- end -}}
+      </ul>
+    </aside>
+    {{- end -}}
+  </div>
+</main>
+{{ end }}

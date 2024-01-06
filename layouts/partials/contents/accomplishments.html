@@ -1,0 +1,13 @@
+<div id="accomplishments" class="hero-body">
+  <div class="container">
+    <p class="title">Accomplishments</p>
+
+    <div class="columns is-multiline">
+      {{ range $.Site.Data.accomplishments }}
+      {{ range . }}
+      {{- partial "parts/card.html" . -}}
+      {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</div>

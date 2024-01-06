@@ -1,0 +1,14 @@
+<div id="experience" class="hero-body">
+  <div class="container">
+    <p class="title">Experience</p>
+
+    <div class="columns is-multiline">
+      <div class="timeline">
+        {{ range $.Site.Data.experience }}
+        {{ range . }}
+        {{- partial "parts/timeline.html" . -}}
+        {{ end }}
+        {{ end }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,11 @@
+<div id="projects" class="hero-body">
+  <div class="container">
+    <p class="title">Projects</p>
+
+    <div class="columns is-flex-wrap-wrap">
+      {{- range .Paginator.Pages }}
+      {{- partial "parts/project-card" . -}}
+      {{- end }}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,36 @@
+<div class="column is-full">
+  <div class="card">
+    <header class="card-header">
+      <p class="card-header-title">
+        {{ if isset . "url" }}
+        <a href="{{ .url }}" target="_blank" rel="noopener">
+        {{ end }}
+        {{ .title }}
+        {{ if isset . "url" }}
+        </a>
+        {{ end }}
+      </p>
+    </header>
+    {{ if isset . "description" }}
+    <div class="card-content">
+      {{ .description | markdownify }}
+    </div>
+    {{ end }}
+    <footer class="card-footer">
+      <div class="px-4">
+        {{ if isset . "organization_url" }}
+        <a href="{{ .organization_url }}" target="_blank" rel="noopener">
+        {{ end }}
+        {{ if isset . "organization" }}
+          {{ .organization }}
+        {{ end }}
+        {{ if isset . "organization_url" }}
+        </a>
+        <span class="px-2">·</span>
+        {{ end }}
+
+        {{ .date_start }} {{ if isset . "date_start" }}<span class="px-1">~</span>{{ end }} {{ .date_end }}
+      </div>
+    </footer>
+  </div>
+</div>
