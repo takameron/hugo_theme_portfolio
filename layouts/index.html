@@ -1,25 +1,25 @@
 {{ define "title" }}{{ .Site.Title }}{{ end }}
 {{ define "main" }}
 <main>
-  <section class="hero is-halfheight has-background-white">
+  <section class="hero is-halfheight">
   {{- partial "contents/biograpy.html" . -}}
   </section>
-  <section class="hero has-background-light">
+  <section class="hero" style="background-color: rgba(0,0,0,0.04)">
   {{- partial "contents/skills.html" . -}}
   </section>
-  <section class="hero has-background-white">
+  <section class="hero">
   {{- partial "contents/experience.html" . -}}
   </section>
-  <section class="hero has-background-light">
+  <section class="hero" style="background-color: rgba(0,0,0,0.04)">
   {{- partial "contents/events.html" . -}}
   </section>
-  <section class="hero has-background-white">
+  <section class="hero">
   {{- partial "contents/accomplishments.html" . -}}
   </section>
-  <section class="hero has-background-light">
+  <section class="hero" style="background-color: rgba(0,0,0,0.04)">
   {{- partial "contents/projects.html" . -}}
   </section>
-  <section class="hero has-background-white">
+  <section class="hero">
   {{- partial "contents/contact.html" . -}}
   </section>
 </main>
